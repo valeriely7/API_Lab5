@@ -1,13 +1,13 @@
 const url = "https://api.thecatapi.com/v1/images/search"
 
-const section = document.querySelector('.container');
-const button = document.querySelector ('.btn');
+const section = document.querySelector(".container");
+const button = document.querySelector (".btn");
 
-button.addEventListener('click', getRandomCats);
+button.addEventListener("click", getRandomCats);
 
 randomCatPhoto = (json) => {
     let photo = json[0].url
-    selection.classList.add('cats')
+    section.classList.add('cats')
 
     let image = document.createElement ('img')
     image.src = photo;
@@ -23,7 +23,10 @@ async function getRandomCats() {
         const json = await reposnse.json()
         console.log('JSON:', json);
         return randomCatPhoto(json)
-    } catch {
+    } catch (e) {
+        console.log ('This is an error')
+        console.log(e)
 
     }
 }
+
